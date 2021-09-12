@@ -1,38 +1,39 @@
-import { React } from 'react';
-
+import {React} from 'react';
 import Plot from 'react-plotly.js';
+import useGridData from "../hooks/useGridData";
 
 function Chart(props) {
-    let xData, yData, y2Data = [];
-    let chartData = props.data;
-    if (chartData.length > 0) {
-        chartData = chartData.sort((a,b) => a.Date - b.Date);
-        xData = chartData.map(item => item.Date);
-        y2Data = chartData.map(item => item.Value2);
-        yData = chartData.map(item => item.Value);    
-    } 
-    console.log("xData", props);
+  /* Implement the rendering of the chart here */
+  const { data } = useGridData();
 
-    return (
-        <Plot
+  const dateArray = data.map((item) => {return item.Date});
+  const value1Array = data.map((item) => {return item.Value1});
+  const value2Array = data.map((item) => {return item.Value2});
+
+  return (
+    <div>
+      <Plot
         data={[
           {
-            x: xData,
-            y: yData,
+            x: dateArray,
+            y: value1Array,
+            name: 'Value1',
             type: 'scatter',
             mode: 'lines+markers',
             marker: {color: 'red'},
           },
           {
-            x: xData ,
-            y: y2Data,
+            x: dateArray,
+            y: value2Array,
+            name: 'Value2',
             type: 'scatter',
             mode: 'lines+markers',
-            marker: {color: 'green'},
-          }
+            marker: {color: 'blue'},
+          },
         ]}
-        layout={ {width: 500, height: 500} }
+        layout={ {width: 500, height: 500, title: 'Reelmetrics chart', color: "darkgrey"} }
       />
-    );
+    </div>
+  );
 }
 export default Chart;

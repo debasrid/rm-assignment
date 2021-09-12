@@ -1,30 +1,39 @@
+/* Implement the CSS here to render the layout as desired */
+
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.3fr 2.6fr 0.4fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "App App"
-    "Data Chart"
-    "Footer Footer";
-}
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: auto;
+ }
 
-.Header { 
-  grid-area: App; 
-  padding: 10px; 
-  margin-bottom: 15px;
-  background-color: #efefef;
-  border-bottom: solid  #ccc 1px;
-  -webkit-box-shadow: 5px 5px 17px 6px #CCCCCC; 
-  box-shadow: 5px 5px 17px 6px #CCCCCC;
-}
+.Header, .Footer{
+  
+    grid-column: 3;
+    justify-content: center;
+    color: darkred;
+    grid-template-rows: [row1-start] 25% [row1-end];
+ }
 
-.Footer { 
-  border-top: solid rgba(0,0,0,0.25) 1px;
+.Header {  
+    font-size: 36px;
+    font-weight: bold;
+    
+ }
 
-  grid-area: Footer; padding: 10px;}
+ .Footer {  
+    font-size: 20px;
+ }
 
-.Data { grid-area: Data; padding: 10px;}
+.Data {
+    grid-column: 1 / span 3;
+    justify-content: center;
+    margin:5%;
+ }
 
-.Chart { grid-area: Chart; padding: 10px;}
+.Chart {
+    grid-column: 4 / span 2;
+    justify-content: center;
+ }
+
+ 

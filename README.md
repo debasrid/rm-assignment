@@ -1,6 +1,6 @@
 ## ReelMetrics assignment
 
-The assignment is to create a small UI where ou can enter data in a datatable, and to visualize that in a chart.
+The assignment is to create a small UI where one can enter data in a datatable, and to visualize that in a chart.
 
 ![Layout](resources/overall.png)
 
@@ -24,9 +24,9 @@ Technical requirements:
 
 Tips:
 - For the DevExpress grid, set the edit mode to `mode="cell"`
-- DevExpresshas a lot of example code on their web site.
+- DevExpress has a lot of example code on their web site.
 
-Nice to have (if time alows): 
+Nice to have (if time allows): 
 - Apply some more CSS to the project to make it a bit pretty
 - Add one test to the project
 
